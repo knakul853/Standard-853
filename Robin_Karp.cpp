@@ -5,6 +5,7 @@ Time : O(len1 + len2)
 space : O(len2)
  p: is prime which is suitable for the lowercase char. u can use other prime as well.
  more about hashing : https://cp-algorithms.com/string/string-hashing.html
+ eg : https://www.spoj.com/problems/NHAY/
 */
 
 
