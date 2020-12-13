@@ -1,0 +1,196 @@
+{
+	// Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"templates":{
+		"prefix":"templates",
+		"body":[
+			"#include<bits/stdc++.h>",
+			"#include <ext/pb_ds/tree_policy.hpp>",
+			"#include <ext/pb_ds/assoc_container.hpp>",
+			"#include <ext/rope>",
+			"using namespace std;",
+			"using namespace __gnu_pbds;",
+			"using namespace __gnu_cxx;",
+			"#define mod 1000000007",
+	"using namespace __gnu_pbds;",
+	"template <typename T>",
+	"using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;",
+		 
+	"/// Some frequent usable functions",
+	"#define int                        long long",
+	"void add(int &a,int b){a+=b;if(a>mod)a-=mod;}",
+	"void sub(int &a,int b){a-=b;if(a<0)a+=mod;}",
+	"void mul(int &a, int b) {a=1ll * a * b % mod;}",
+	"template<typename T> T pow(T a,T b, long long m){T ans=1; while(b>0){ if(b%2==1) ans=(ans*a)%m; b/=2; a=(a*a)%m; } return ans%m; }",
+	"int powmod(int a,int b)",
+	"{int res = 1;while(b){if(b&1){res = (res * a)%mod;}b= b/2;a = (a*a)%mod;}return res;}",
+	"int _ceil(int, int);",
+	"int _floor(int a, int b) { return b < 0 ? _floor(-a, -b) : a < 0 ? -_ceil(-a, b) : a / b; }",
+	"int _ceil(int a, int b) { return b < 0 ? _ceil(-a, -b) : a < 0 ? -_floor(-a, b) : (a + b - 1) / b; }",
+		 
+	"// int gcd(int a, int b, int &x, int &y) {if (a == 0) {x = 0; y = 1;return b;",
+	"//     }int x1, y1;int d = gcd(b%a, a, x1, y1); x = y1 - (b / a) * x1;y = x1;return d;}",
+	"// int find(int v){return v==parent[v]?v:parent[v] = find(parent[v]);}",
+	"// void merge(int i,int j)",
+	"//     {i = find(i);j = find(j);if(i == j)return;parent[parent[i]] = parent[j];cmp--;}",
+		 
+	"/*",
+		"/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/ *** Directions in grids *** \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/",
+	"*/",
+	"// int dy[4] = {0,0,1,-1}, dx[4] = {1,-1,0,0}; // 4 Direction",
+	"// int dx[] = {1,-1,0,0,1,1,-1,-1} , dy[] = {0,0,1,-1,1,-1,1,-1};  // 8 Direction",
+	"// int dx[] = {1,-1,1,-1,2,2,-2,-2} , dy[] = {2,2,-2,-2,1,-1,1,-1};  // Knight moves",
+	"// int dx[] = {2,-2,1,1,-1,-1} , dy[] = {0,0,1,-1,1,-1};  // Hexagonal Direction",
+	"#define fast ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)",
+	"#define sp(a , x) cout << fixed << setprecision(a) << x << endl;",
+	"#define pb push_back",
+	"#define pf push_front",
+	"#define ub upper_bound",
+	"#define lb lower_bound",
+	"#define F first",
+	"#define S second",
+	"#define mset(a, b) memset(a, b, sizeof a)",
+	"#define sz(x) ((int)(x.size()))",
+	"#define sqr(x) ((x) * (x))",
+	"#define graph vector<int>",
+	"#define vi vector<int>",
+	"#define vvi vector<vector<int>>",
+	"#define pi pair<int,int>",
+	"#define all(c)                      c.begin() , c.end()",
+	"#define rep(i,a) for(int i=0;i<a;i++)",
+	"#define rrep(i,a,b) for(int i=a;i>=b;i--)",
+	"#define iter(it,a) for(auto it=a.begin();it!=a.end();it++)",
+	"#define PQP priority_queue<pi, vector<pi>, greater<pi>>",
+	"#define PQI priority_queue<int, vector<int>, greater<int>>",
+	"#define dbg debug",
+	"#define inf (int)1e18",
+	"const long double EPS = 0.0000000001;",
+	"const long double PI = 3.1415926535897932384;",
+	"//vec.resize(unique(all(vec)) - vec.begin());",
+	" int dy[4] = {0,0,1,-1}, dx[4] = {1,-1,0,0};",
+	
+	"  /// define some data.......",
+	"const int N = (int)2e6+5;",
+	
+	"void solve()",
+	"{",
+		
+	"}",
+	
+	"int32_t main(){",
+	"    fast;",
+	"    int test = 1;",
+	"    cin >> test;",
+	"    int tc = 1;",
+	"    while (test--)",
+	"    {",
+	"     solve();",
+		 
+	"    }",
+	"}",
+		],
+	},
+	"dijkstra":{
+		"prefix":"dijkstra_algo",
+	"body":[
+		"void dijkstra(int s, vector<int> &d) {",
+		"    d = vector<int>(n, INF);",
+		"    d[s] = 0;",
+		"    set<pair<int, int>> st;",
+		"    st.insert({d[s], s});",
+		"    while (!st.empty()) {",
+		"        int v = st.begin()->second;",
+		"        st.erase(st.begin());",
+		"        for (auto [to, w] : g[v]) {",
+		"             if (d[to] > d[v] + w) {",
+		"              auto it = st.find({d[to], to});",
+		"               if (it != st.end()) st.erase(it);",
+		"                d[to] = d[v] + w;",
+		"                 st.insert({d[to], to});",
+		"               }",
+		"           }",
+		"      }",
+		"  }",
+	]
+	},
+
+	"KMP":{
+		"prefix":"kmp",
+		"body": [
+			"vector<int> prefix_function(string&s){",
+        
+			"   int n = s.size();",
+			"    vector<int>phi(n);",
+				
+			"    for(int i=1; i<n; i++){",
+					
+			"     int j = phi[i-1];",
+					
+			"     while(j>0 && s[i] != s[j] ){",
+			"         j = phi[j-1];",
+			"       }",
+					
+			"        if(s[i] == s[j]){",
+			"             j++;",
+			"              }",
+					
+			"              phi[i] = j;",
+			"      }",
+				
+			"     return phi;",
+			"}",
+		]
+	},
+	"DSU":{
+		"prefix": "DSU",
+		"body": [
+			"struct DSU{",
+ 
+			"    vector<int>parent, sizes;",
+			"    int components;",
+				
+			"    DSU(int N){",
+			"        parent.resize(N);",
+			"        sizes.resize(N, 1);",
+			"        components = N;",
+			
+			"        for (int i = 0; i < N; i++){",
+			"              parent[i] = i;",
+			"         }",
+			"      }",
+			 
+			"    int find(int child){",
+			"          if(parent[child] != child){",
+			"              parent[child] = find(parent[child]);",
+			"           }",
+			"         return parent[child];",
+			"      }",
+			
+			"     void join(int x, int y){",
+			"           int px = find(x);",
+			"           int py = find(y);",
+			 
+			"           if(px == py)",
+			"             return;",
+			"           if(sizes[px] > sizes[py])",
+			"               swap(px, py);",
+			"           sizes[py] += sizes[px];",
+			"           parent[px] = py;",
+			"           components--",
+			"      }",
+			"   };",
+		]
+	}
+}
