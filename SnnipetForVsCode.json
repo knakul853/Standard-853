@@ -188,9 +188,41 @@
 			"               swap(px, py);",
 			"           sizes[py] += sizes[px];",
 			"           parent[px] = py;",
-			"           components--",
+			"           components--;",
 			"      }",
 			"   };",
 		]
-	}
+	},
+	"ncr":{
+		"prefix": "ncr",
+		"body": [
+			"vector<int> fact(N), inv(N);",
+            "vector<int> inv_fact(N);",
+			"void initialize()",
+			"{",
+
+			"    fact[0] = 1;",
+			"    for (int i = 1; i <= N-2; i++){",
+			"        fact[i] = (i * fact[i - 1]) % mod;",
+			"     }",
+			"     inv[1] = 1;",
+			"     for (int i = 2; i <= N - 2; i++){",
+			"        inv[i] = (mod - mod / i) * inv[mod % i] % mod;",
+			"      }",
+
+			"     inv_fact[0] = inv_fact[1] = 1;",
+			"     for (int i = 2; i <= N - 2; i++){",
+			"          inv_fact[i] = (inv_fact[i - 1] * inv[i]) % mod;",
+			"      }",
+
+			"}",
+
+			"int ncr(int n, int r){",
+
+			"     if(n<r)",
+			"        return 0;",
+			"     return (fact[n] % mod * inv_fact[n - r] % mod * inv_fact[r] % mod) % mod;",
+			"}",
+			]
+		}
 }
