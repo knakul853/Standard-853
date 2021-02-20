@@ -224,5 +224,61 @@
 			"     return (fact[n] % mod * inv_fact[n - r] % mod * inv_fact[r] % mod) % mod;",
 			"}",
 			]
+		},
+		"matrix":{
+			"prefix": "matrix",
+			"body": [
+				"struct matrix{",
+				"      int arr[sz][sz];",
+				
+				"      void reset(){",
+				"      rep(i,sz){",
+				"         rep(j,sz){",
+				"            arr[i][j]=0;",
+				"           }",
+				"         }",
+				"      }",
+				
+				"    // make identity matrix.",
+				"    void makeidentity(){",
+				"     reset();",
+				"      rep(j, sz)",
+				"        {",
+				"          arr[j][j] = 1;",
+				"         }",
+				"        }",
+				
+				"    // override add operator",
+				
+				"     matrix operator + (const matrix& other) const",
+				"       {",
+				"         matrix res;",
+				"           rep(i, sz){",
+				"             rep(j,sz){",
+				"               res.arr[i][j] = add(arr[i][j], other.arr[i][j]);",
+				"                 }",
+				"               }",
+				
+				"          return res;",
+				"      }",
+				
+				"    //overrite the * operators",
+				"    matrix operator * (const matrix& other) const",
+				"    {",
+				"       matrix res;",
+				"        rep(i, sz){",
+				"          rep(j,sz){",
+				"              res.arr[i][j] = 0;",
+				"              rep(k, sz)",
+				"              {",
+				"                res.arr[i][j] = add(res.arr[i][j], mult(arr[i][k], other.arr[k][j]));",
+				"               }",
+				"             }",
+				"           }",
+				
+				"     return res;",
+				"    }",
+				" };",
+			]
 		}
 }
